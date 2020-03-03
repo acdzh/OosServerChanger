@@ -14,7 +14,7 @@ It can automaticly use current Windows Theme, include the *Light* or *Dark* Mode
 
 ## download
 
-You can download the release version on the [release page](https://github.com/acdzh/OosServerChanger/release).
+You can download the release version on the [release page](https://github.com/acdzh/OosServerChanger/releases).
 
 ### change server
 

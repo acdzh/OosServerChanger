@@ -1,0 +1,57 @@
+﻿<Window x:Name="window" x:Class="oosServerChanger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:oosServerChanger"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="OosServerChanger   Author: acdzh@github" Height="310" Width="605" FontSize="14" Icon="5e5db7d438424.256px.ico" ResizeMode="CanMinimize">
+    <DockPanel Width="Auto" Height="Auto" LastChildFill="True">
+        <StackPanel  Width="460" Orientation="Horizontal" DockPanel.Dock="Left">
+            <ListView Margin="10,5,10,10" Width="auto" ItemsSource="{Binding ServerList}" Name="ListView_ServerList">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="Server" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding IP}"
+                            Header="IP" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Domain}"
+                            Header="Domain" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Delay}"
+                            Header="Delay" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <DockPanel Margin="0, 20, 10, 10" Width="Auto" Height="Auto" LastChildFill="True" DockPanel.Dock="Right">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                <materialDesign:Card >
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Margin="0,5,0,0" HorizontalAlignment="Left" >Current Server</Label>
+                        <Label Margin="0,0,0,5" Content="{Binding CurrentServerName}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </materialDesign:Card>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+                <StackPanel Margin="0,0,0,10" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <ToggleButton Name="ToggleButton_AutoRefesh" IsChecked="{Binding IsAutoRefesh}" Click="ToggleButton_AutoRefesh_Checked"/>
+                    <Label>Auto Refesh</Label>
+                </StackPanel>
+                <Button Margin="0,0,0,10" Name="Button_Refesh" Width="115"  IsEnabled="{Binding IsNotAutoRefesh}" Click="Button_Refesh_Click" Padding="16,4" HorizontalAlignment="Center">Refersh</Button>
+                <Button Margin="0,0,0,15" Name="Button_Change" Width="115" Click="Button_Change_Click" HorizontalAlignment="Center">Change</Button>
+            </StackPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
